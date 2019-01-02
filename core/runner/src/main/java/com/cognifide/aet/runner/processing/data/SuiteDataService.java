@@ -122,7 +122,7 @@ public class SuiteDataService {
     final SimpleDBKey dbKey = new SimpleDBKey(currentRun);
     Suite lastVersion = metadataDAO.getLatestRun(dbKey, currentRun.getName());
 
-    Set<Suite> allSuites = new HashSet<>(getPatternSuites(currentRun, dbKey, lastVersion));
+    List<Suite> allSuites = getPatternSuites(currentRun, dbKey, lastVersion);
     allSuites.add(currentRun);
 
     return SuiteComparator.compare(allSuites);
